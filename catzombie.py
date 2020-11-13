@@ -10,7 +10,10 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-            
+    #song
+    pygame.mixer.music.load("IntroSong.mp3")
+    pygame.mixer.music.play(-1)
+    
     #game logo and name      
     pygame.display.set_caption("CatZombie The Game")
     icon=pygame.image.load("cat-mask.png")
@@ -18,10 +21,6 @@ while not done:
 
     #wallpaper
     image=pygame.image.load("grass.jpg").convert()
-    screen.blit(image, (50, 50))
-
-    #song
-    pygame.mixer.music.load("IntroSong.mp3")
-    pygame.mixer.music.play(-1)
+    screen.blit(image, (500, 500))
     
     pygame.display.flip()
