@@ -1,13 +1,27 @@
-#1 - Import the library
 import pygame
-#2 - Initialize the game
+from pygame import mixer
+mixer.init()
+
 pygame.init()
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 done = False
-#2.1 – Add wallpaper
-#2.2 – Add music
+
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+            
+    #game logo and name      
+    pygame.display.set_caption("CatZombie The Game")
+    icon=pygame.image.load("cat-mask.png")
+    pygame.display.set_icon(icon)
+
+    #wallpaper
+    image=pygame.image.load("grass.jpg").convert()
+    screen.blit(image, (50, 50))
+
+    #song
+    pygame.mixer.music.load("IntroSong.mp3")
+    pygame.mixer.music.play(-1)
+    
     pygame.display.flip()
